@@ -38,7 +38,12 @@ public class MainController extends Controller {
         colTitle.setCellValueFactory(new PropertyValueFactory<>("title"));
         colYear.setCellValueFactory(new PropertyValueFactory<>("year"));
         colOnDispaly.setCellValueFactory(new PropertyValueFactory<>("onDisplay"));
+
+        colPerson.setCellValueFactory(new PropertyValueFactory<>("person"));
+        colHeight.setCellValueFactory(new PropertyValueFactory<>("height"));
+        colPrice.setCellValueFactory(new PropertyValueFactory<>("price"));
         loadPaintings();
+        loadStatues();
     }
 
     private void loadPaintings() {
@@ -47,6 +52,18 @@ public class MainController extends Controller {
             tableViewPainting.getItems().clear();
             for (Painting painting : paintingList) {
                 tableViewPainting.getItems().add(painting);
+            }
+        } catch (IOException e) {
+            errorAlert(e);
+        }
+    }
+
+    private void loadStatues() {
+        try {
+            List<Statue> statueList = Api.getStatues();
+            tableViewStatue.getItems().clear();
+            for (Statue statue : statueList) {
+                tableViewStatue.getItems().add(statue);
             }
         } catch (IOException e) {
             errorAlert(e);
