@@ -4,24 +4,27 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox alignment="TOP_CENTER" prefHeight="409.0" prefWidth="549.0" spacing="20.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.muzeumfrontendjavafx.controllers.MainController">
+<VBox alignment="TOP_CENTER" onMouseClicked="#clickDeselect" prefHeight="457.0" prefWidth="549.0" spacing="20.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.muzeumfrontendjavafx.controllers.MainController">
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
     </padding>
    <children>
-      <TabPane fx:id="tabPane" prefHeight="369.0" prefWidth="381.0" tabClosingPolicy="UNAVAILABLE">
+      <TabPane fx:id="tabPane" onMouseClicked="#clickDeselect" prefHeight="422.0" prefWidth="509.0" tabClosingPolicy="UNAVAILABLE">
         <tabs>
           <Tab text="Paintings">
             <content>
-              <AnchorPane minHeight="340.0" minWidth="340.0" prefHeight="342.0" prefWidth="381.0">
+              <AnchorPane minHeight="340.0" minWidth="340.0" onMouseClicked="#clickDeselect" prefHeight="342.0" prefWidth="381.0">
                      <children>
-                        <TableView fx:id="tableViewPainting" layoutX="12.0" layoutY="10.0" prefHeight="320.0" prefWidth="483.0">
+                        <TableView fx:id="tableViewPainting" layoutX="13.0" layoutY="54.0" prefHeight="320.0" prefWidth="483.0">
                           <columns>
                             <TableColumn fx:id="colTitle" prefWidth="223.0" text="Title" />
                             <TableColumn fx:id="colYear" prefWidth="136.0" text="Year" />
                               <TableColumn fx:id="colOnDispaly" minWidth="-1.0" prefWidth="122.0" text="On Display" />
                           </columns>
                         </TableView>
+                        <Button layoutX="13.0" layoutY="14.0" mnemonicParsing="false" onAction="#btnPaintingAdd" text="Add" />
+                        <Button layoutX="59.0" layoutY="14.0" mnemonicParsing="false" onAction="#btnPaintingEdit" text="Edit" />
+                        <Button layoutX="104.0" layoutY="14.0" mnemonicParsing="false" onAction="#btnPaintingDelete" text="Delete" />
                      </children>
                   </AnchorPane>
             </content>
@@ -30,13 +33,16 @@
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <TableView fx:id="tableViewStatue" layoutX="12.0" layoutY="10.0" prefHeight="320.0" prefWidth="483.0">
+                        <TableView fx:id="tableViewStatue" layoutX="13.0" layoutY="54.0" prefHeight="320.0" prefWidth="483.0">
                           <columns>
                             <TableColumn fx:id="colPerson" prefWidth="223.0" text="Person" />
                             <TableColumn fx:id="colHeight" prefWidth="154.0" text="Height" />
                               <TableColumn fx:id="colPrice" prefWidth="112.0" text="Price" />
                           </columns>
                         </TableView>
+                        <Button layoutX="13.0" layoutY="14.0" mnemonicParsing="false" onAction="#btnStatueAdd" text="Add" />
+                        <Button layoutX="59.0" layoutY="14.0" mnemonicParsing="false" onAction="#btnStatueEdit" text="Edit" />
+                        <Button layoutX="104.0" layoutY="14.0" mnemonicParsing="false" onAction="#btnStatueDelete" text="Delete" />
                      </children></AnchorPane>
             </content>
           </Tab>

@@ -4,6 +4,8 @@ import com.example.muzeumfrontendjavafx.Api;
 import com.example.muzeumfrontendjavafx.Controller;
 import com.example.muzeumfrontendjavafx.Statue;
 import com.example.muzeumfrontendjavafx.Painting;
+import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.scene.control.TabPane;
 import javafx.scene.control.TableColumn;
@@ -68,5 +70,51 @@ public class MainController extends Controller {
         } catch (IOException e) {
             errorAlert(e);
         }
+    }
+
+    @FXML
+    public void btnPaintingAdd(ActionEvent actionEvent) {
+    }
+
+    @FXML
+    public void btnPaintingEdit(ActionEvent actionEvent) {
+    }
+
+    @FXML
+    public void btnPaintingDelete(ActionEvent actionEvent) {
+        int selectedIndex = tableViewPainting.getSelectionModel().getSelectedIndex();
+        if (selectedIndex == -1) {
+            alert("You have to select a painting to delete");
+            return;
+        }
+        Painting painting = tableViewPainting.getSelectionModel().getSelectedItem();
+        if (!confirm("Are you sure you want to delete: \"" + painting.getTitle() + "\"")) {
+            return;
+        }
+        try {
+            boolean success = Api.deletePainting(painting.getId());
+            alert(success ? "Painting deleted successfully" : "Painting could not be deleted");
+            loadPaintings();
+        } catch (IOException e) {
+            errorAlert(e);
+        }
+    }
+
+    @FXML
+    public void btnStatueAdd(ActionEvent actionEvent) {
+    }
+
+    @FXML
+    public void btnStatueEdit(ActionEvent actionEvent) {
+    }
+
+    @FXML
+    public void btnStatueDelete(ActionEvent actionEvent) {
+    }
+
+    @FXML
+    public void clickDeselect(Event event) {
+        tableViewPainting.getSelectionModel().clearSelection();
+        tableViewStatue.getSelectionModel().clearSelection();
     }
 }
