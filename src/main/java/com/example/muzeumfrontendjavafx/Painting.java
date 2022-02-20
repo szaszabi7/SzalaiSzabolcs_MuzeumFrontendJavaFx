@@ -2,15 +2,15 @@ package com.example.muzeumfrontendjavafx;
 
 public class Painting {
     private int id;
-    private String person;
-    private int height;
-    private int price;
+    private String title;
+    private int year;
+    private boolean onDisplay;
 
-    public Painting(int id, String person, int height, int price) {
+    public Painting(int id, String title, int year, boolean onDisplay) {
         this.id = id;
-        this.person = person;
-        this.height = height;
-        this.price = price;
+        this.title = title;
+        this.year = year;
+        this.onDisplay = onDisplay;
     }
 
     public int getId() {
@@ -21,27 +21,27 @@ public class Painting {
         this.id = id;
     }
 
-    public String getPerson() {
-        return person;
+    public String getTitle() {
+        return title;
     }
 
-    public void setPerson(String person) {
-        this.person = person;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
-    public int getHeight() {
-        return height;
+    public int getYear() {
+        return year;
     }
 
-    public void setHeight(int height) {
-        this.height = height;
+    public void setYear(int year) {
+        this.year = year;
     }
 
-    public int getPrice() {
-        return price;
+    public boolean isOnDisplay() {
+        return onDisplay;
     }
 
-    public void setPrice(int price) {
-        this.price = price;
+    public void setOnDisplay(boolean onDisplay) {
+        this.onDisplay = onDisplay;
     }
 }

@@ -4,7 +4,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox alignment="TOP_CENTER" prefHeight="409.0" prefWidth="421.0" spacing="20.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.muzeumfrontendjavafx.MainController">
+<VBox alignment="TOP_CENTER" prefHeight="409.0" prefWidth="421.0" spacing="20.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.muzeumfrontendjavafx.controllers.MainController">
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
     </padding>
@@ -19,7 +19,7 @@
                           <columns>
                             <TableColumn fx:id="colTitle" prefWidth="170.0" text="Title" />
                             <TableColumn fx:id="colYear" prefWidth="104.0" text="Year" />
-                              <TableColumn fx:id="colOnDispaly" minWidth="0.0" prefWidth="85.0" text="On Display" />
+                              <TableColumn fx:id="colOnDispaly" minWidth="-1.0" prefWidth="82.0" text="On Display" />
                           </columns>
                         </TableView>
                      </children>
