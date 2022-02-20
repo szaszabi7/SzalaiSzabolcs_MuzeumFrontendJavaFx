@@ -1,16 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
 
-<?import javafx.scene.control.Button?>
-<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="com.example.muzeumfrontendjavafx.MainController">
+<VBox alignment="TOP_CENTER" prefHeight="409.0" prefWidth="421.0" spacing="20.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.muzeumfrontendjavafx.MainController">
     <padding>
-        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
     </padding>
-
-    <Label fx:id="welcomeText"/>
-    <Button text="Hello!" onAction="#onHelloButtonClick"/>
+   <children>
+      <TabPane fx:id="tabPane" prefHeight="369.0" prefWidth="381.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="Paintings">
+            <content>
+              <AnchorPane minHeight="340.0" minWidth="340.0" prefHeight="342.0" prefWidth="381.0">
+                     <children>
+                        <TableView fx:id="tableViewPainting" layoutX="12.0" layoutY="10.0" prefHeight="320.0" prefWidth="358.0">
+                          <columns>
+                            <TableColumn fx:id="colTitle" prefWidth="170.0" text="Title" />
+                            <TableColumn fx:id="colYear" prefWidth="104.0" text="Year" />
+                              <TableColumn fx:id="colOnDispaly" minWidth="0.0" prefWidth="85.0" text="On Display" />
+                          </columns>
+                        </TableView>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab text="Statues">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView fx:id="tableViewStatue" layoutX="12.0" layoutY="10.0" prefHeight="320.0" prefWidth="358.0">
+                          <columns>
+                            <TableColumn fx:id="colPerson" prefWidth="170.0" text="Person" />
+                            <TableColumn fx:id="colHeight" prefWidth="75.0" text="Height" />
+                              <TableColumn fx:id="colPrice" prefWidth="112.0" text="Price" />
+                          </columns>
+                        </TableView>
+                     </children></AnchorPane>
+            </content>
+          </Tab>
+        </tabs>
+      </TabPane>
+   </children>
 </VBox>
