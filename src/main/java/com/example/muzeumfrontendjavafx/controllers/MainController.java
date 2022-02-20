@@ -90,6 +90,7 @@ public class MainController extends Controller {
 
     @FXML
     public void btnPaintingEdit(ActionEvent actionEvent) {
+        alert("Not yet implemented");
     }
 
     @FXML
@@ -130,6 +131,7 @@ public class MainController extends Controller {
 
     @FXML
     public void btnStatueEdit(ActionEvent actionEvent) {
+        alert("Not yet implemented");
     }
 
     @FXML

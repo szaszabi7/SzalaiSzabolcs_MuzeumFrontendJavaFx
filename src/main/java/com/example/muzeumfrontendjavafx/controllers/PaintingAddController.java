@@ -58,7 +58,6 @@ public class PaintingAddController extends Controller {
         }
         boolean onDisplay = false;
         if (onDisplayIndex == 0) onDisplay = true;
-        System.out.println(onDisplay);
 
         try {
             Painting newPainting = new Painting(0, title, year, onDisplay);
