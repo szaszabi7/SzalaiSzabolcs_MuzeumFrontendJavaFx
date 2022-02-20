@@ -1,16 +1,16 @@
 package com.example.muzeumfrontendjavafx.controllers;
 
-import com.example.muzeumfrontendjavafx.Api;
-import com.example.muzeumfrontendjavafx.Controller;
-import com.example.muzeumfrontendjavafx.Statue;
-import com.example.muzeumfrontendjavafx.Painting;
+import com.example.muzeumfrontendjavafx.*;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.TabPane;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.util.List;
@@ -32,14 +32,14 @@ public class MainController extends Controller {
     @FXML
     private TableColumn<Painting, Integer> colYear;
     @FXML
-    private TableColumn<Painting, Boolean> colOnDispaly;
+    private TableColumn<Painting, Boolean> colOnDisplay;
     @FXML
     private TabPane tabPane;
 
     public void initialize() {
         colTitle.setCellValueFactory(new PropertyValueFactory<>("title"));
         colYear.setCellValueFactory(new PropertyValueFactory<>("year"));
-        colOnDispaly.setCellValueFactory(new PropertyValueFactory<>("onDisplay"));
+        colOnDisplay.setCellValueFactory(new PropertyValueFactory<>("on_display"));
 
         colPerson.setCellValueFactory(new PropertyValueFactory<>("person"));
         colHeight.setCellValueFactory(new PropertyValueFactory<>("height"));
@@ -74,6 +74,18 @@ public class MainController extends Controller {
 
     @FXML
     public void btnPaintingAdd(ActionEvent actionEvent) {
+        Stage stage = new Stage();
+        FXMLLoader fxmlLoader = new FXMLLoader(MuzeumApp.class.getResource("paintingadd-view.fxml"));
+        Scene scene = null;
+        try {
+            scene = new Scene(fxmlLoader.load());
+            stage.setTitle("Add new Painting");
+            stage.setScene(scene);
+            stage.setOnCloseRequest(event -> loadPaintings());
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML

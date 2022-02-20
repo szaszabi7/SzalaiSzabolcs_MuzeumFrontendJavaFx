@@ -36,6 +36,19 @@ public class Api{
         return response.getResponseCode() == 204;
     }
 
+    public static Painting addPainting(Painting newPainting) throws IOException {
+        Gson jsonConvert = new Gson();
+        String paintingJson = jsonConvert.toJson(newPainting);
+        Response response = RequestHandler.post(PAINTING_API_URL, paintingJson);
+
+        String json = response.getContent();
+        if (response.getResponseCode() >= 400){
+            String message = jsonConvert.fromJson(json, ApiError.class).getMessage();
+            throw new IOException(message);
+        }
+        return jsonConvert.fromJson(json, Painting.class);
+    }
+
     public static List<Statue> getStatues() throws IOException {
         Response response = RequestHandler.get(STATUE_API_URL);
         String json = response.getContent();
@@ -59,5 +72,4 @@ public class Api{
         }
         return response.getResponseCode() == 204;
     }
-
 }
