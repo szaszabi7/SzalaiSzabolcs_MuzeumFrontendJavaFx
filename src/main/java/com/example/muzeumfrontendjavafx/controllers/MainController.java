@@ -110,6 +110,22 @@ public class MainController extends Controller {
 
     @FXML
     public void btnStatueDelete(ActionEvent actionEvent) {
+        int selectedIndex = tableViewStatue.getSelectionModel().getSelectedIndex();
+        if (selectedIndex == -1) {
+            alert("You have to select a statue to delete");
+            return;
+        }
+        Statue statue = tableViewStatue.getSelectionModel().getSelectedItem();
+        if (!confirm("Are you sure you want to delete: \"" + statue.getPerson() + "\"")) {
+            return;
+        }
+        try {
+            boolean success = Api.deleteStatue(statue.getId());
+            alert(success ? "Statue deleted successfully" : "Statue could not be deleted");
+            loadStatues();
+        } catch (IOException e) {
+            errorAlert(e);
+        }
     }
 
     @FXML

@@ -48,4 +48,16 @@ public class Api{
         return jsonConvert.fromJson(json,type);
     }
 
+    public static boolean deleteStatue(int id) throws IOException {
+        Response response = RequestHandler.delete(STATUE_API_URL + "/" + id);
+
+        Gson jsonConvert = new Gson();
+        String json = response.getContent();
+        if (response.getResponseCode() >= 400){
+            String message = jsonConvert.fromJson(json, ApiError.class).getMessage();
+            throw new IOException(message);
+        }
+        return response.getResponseCode() == 204;
+    }
+
 }

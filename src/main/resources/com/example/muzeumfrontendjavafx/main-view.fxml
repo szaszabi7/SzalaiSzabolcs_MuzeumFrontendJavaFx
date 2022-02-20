@@ -37,7 +37,7 @@
                           <columns>
                             <TableColumn fx:id="colPerson" prefWidth="223.0" text="Person" />
                             <TableColumn fx:id="colHeight" prefWidth="154.0" text="Height" />
-                              <TableColumn fx:id="colPrice" prefWidth="112.0" text="Price" />
+                              <TableColumn fx:id="colPrice" prefWidth="104.0" text="Price" />
                           </columns>
                         </TableView>
                         <Button layoutX="13.0" layoutY="14.0" mnemonicParsing="false" onAction="#btnStatueAdd" text="Add" />
