@@ -13,6 +13,7 @@ public class Painting {
         this.on_display = on_display;
     }
 
+    //region Getter/Setter
     public int getId() {
         return id;
     }
@@ -44,4 +45,5 @@ public class Painting {
     public void setOn_display(boolean on_display) {
         this.on_display = on_display;
     }
+    //endregion
 }

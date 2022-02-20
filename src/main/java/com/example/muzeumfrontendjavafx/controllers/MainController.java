@@ -114,6 +114,18 @@ public class MainController extends Controller {
 
     @FXML
     public void btnStatueAdd(ActionEvent actionEvent) {
+        Stage stage = new Stage();
+        FXMLLoader fxmlLoader = new FXMLLoader(MuzeumApp.class.getResource("statueadd-view.fxml"));
+        Scene scene = null;
+        try {
+            scene = new Scene(fxmlLoader.load());
+            stage.setTitle("Add new Statue");
+            stage.setScene(scene);
+            stage.setOnCloseRequest(event -> loadStatues());
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML

@@ -72,4 +72,17 @@ public class Api{
         }
         return response.getResponseCode() == 204;
     }
+
+    public static Statue addStatue(Statue newStatue) throws IOException {
+        Gson jsonConvert = new Gson();
+        String statueJson = jsonConvert.toJson(newStatue);
+        Response response = RequestHandler.post(STATUE_API_URL, statueJson);
+
+        String json = response.getContent();
+        if (response.getResponseCode() >= 400){
+            String message = jsonConvert.fromJson(json, ApiError.class).getMessage();
+            throw new IOException(message);
+        }
+        return jsonConvert.fromJson(json, Statue.class);
+    }
 }

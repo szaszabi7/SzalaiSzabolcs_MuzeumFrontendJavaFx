@@ -45,7 +45,7 @@ public class PaintingAddController extends Controller {
             alert("You have to add the painting's year of creation");
             return;
         } catch (Exception ex){
-            alert("A hossz csak 1 és 999 közötti szám lehet");
+            alert("The year of creation has to be between 1 and " + currentYear);
             return;
         }
         if (year < 1 || year > currentYear) {
@@ -74,7 +74,7 @@ public class PaintingAddController extends Controller {
         }
     }
 
-    public void resetInputs() {
+    private void resetInputs() {
         textFieldPainitngAddTitle.setText("");
         spinnerPainitngAddYear.getValueFactory().setValue(currentYear);
         choiceBoxPainitngAddOnDisplay.getSelectionModel().clearSelection();
